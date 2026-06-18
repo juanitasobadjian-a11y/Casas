@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paradise Beach Houses</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f8fc;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+    background-size:cover;
+    background-position:center;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+}
+
+.logo{
+    color:white;
+    font-size:2rem;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+
+.hero{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#00b4d8;
+    color:white;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#0096c7;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    color:#023e8a;
+    font-size:2.5rem;
+}
+
+/* CARRUSEL */
+
+.slider-container{
+    max-width:1200px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.slide{
+    display:none;
+}
+
+.slide img{
+    width:100%;
+    height:600px;
+    object-fit:cover;
+    display:block;
+}
+
+.prev, .next{
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,.5);
+    color:white;
+    border:none;
+    padding:15px 20px;
+    font-size:25px;
+    border-radius:50%;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+.prev:hover,
+.next:hover{
+    background:#00b4d8;
+}
+
+/* PROPIEDADES */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#00b4d8;
+    font-size:1.3rem;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+/* SERVICIOS */
+
+.services{
+    background:white;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.service{
+    background:#f8fbff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* CTA */
+
+.cta{
+    background:linear-gradient(135deg,#0077b6,#00b4d8);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#001d3d;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.slide img{
+    height:350px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<nav>
+<div class="logo">🏖 Paradise Beach Houses</div>
+
+<ul>
+<li><a href="#">Inicio</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#casas">Casas</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+
+<div class="hero">
+<div>
+<h1>Casas de Ensueño Frente al Mar</h1>
+<p>
+Disfruta de unas vacaciones inolvidables en nuestras exclusivas propiedades frente a la playa.
+Confort, lujo y las mejores vistas del océano.
+</p>
+<a href="#casas" class="btn">Ver Propiedades</a>
+</div>
+</div>
+
+</header>
+
+<section id="galeria">
+
+<div class="section-title">
+<h2>Galería Destacada</h2>
+</div>
+
+<div class="slider-container">
+
+<div class="slide">
+<img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/imagen1.jpg" alt="Casa Vacacional 1">
+</div>
+
+<div class="slide">
+<img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/imagen2.jpg" alt="Casa Vacacional 2">
+</div>
+
+<button class="prev" onclick="changeSlide(-1)">❮</button>
+<button class="next" onclick="changeSlide(1)">❯</button>
+
+</div>
+
+</section>
+
+<section id="casas">
+
+<div class="section-title">
+<h2>Propiedades Premium</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6">
+<div class="card-content">
+<h3>Villa Sunset</h3>
+<p>Elegante residencia frente al mar con piscina privada y terraza panorámica.</p>
+<div class="price">USD 280 / noche</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9">
+<div class="card-content">
+<h3>Ocean Breeze</h3>
+<p>Ideal para familias que buscan comodidad y acceso directo a la playa.</p>
+<div class="price">USD 220 / noche</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750">
+<div class="card-content">
+<h3>Blue Horizon</h3>
+<p>Diseño moderno con vistas espectaculares al océano.</p>
+<div class="price">USD 350 / noche</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="services" id="servicios">
+
+<div class="section-title">
+<h2>Servicios Exclusivos</h2>
+</div>
+
+<div class="service-grid">
+
+<div class="service">
+<h3>🏊 Piscina Privada</h3>
+<p>Disfruta de total privacidad y relax.</p>
+</div>
+
+<div class="service">
+<h3>🌊 Vista al Mar</h3>
+<p>Despierta con paisajes impresionantes.</p>
+</div>
+
+<div class="service">
+<h3>📶 WiFi Premium</h3>
+<p>Internet de alta velocidad en toda la propiedad.</p>
+</div>
+
+<div class="service">
+<h3>🚗 Parking Privado</h3>
+<p>Seguridad y comodidad para tu vehículo.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta" id="contacto">
+
+<h2>Reserva Tu Próxima Experiencia</h2>
+
+<p>
+Contáctanos hoy mismo y encuentra la casa perfecta para tus vacaciones.
+</p>
+
+<br>
+
+<a href="#" class="btn">Solicitar Información</a>
+
+</section>
+
+<footer>
+© 2026 Paradise Beach Houses | Todos los derechos reservados.
+</footer>
+
+<script>
+
+let slideIndex = 0;
+
+function showSlides(){
+
+let slides = document.getElementsByClassName("slide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideIndex++;
+
+if(slideIndex > slides.length){
+slideIndex = 1;
+}
+
+slides[slideIndex-1].style.display="block";
+
+setTimeout(showSlides, 5000);
+}
+
+function changeSlide(n){
+
+let slides = document.getElementsByClassName("slide");
+
+slideIndex += n;
+
+if(slideIndex > slides.length){
+slideIndex = 1;
+}
+
+if(slideIndex < 1){
+slideIndex = slides.length;
+}
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slides[slideIndex-1].style.display="block";
+}
+
+showSlides();
+
+</script>
+
+</body>
+</html>
